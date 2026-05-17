@@ -23,4 +23,4 @@ jobs:
         run: pip install pandas
 
       - name: Run script
-        run: python birthday_main.py
+        run: python bday_main.py
