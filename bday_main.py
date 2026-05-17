@@ -7,8 +7,10 @@ import smtplib
 
 warnings.simplefilter("ignore")
 
-MY_EMAIL = "DouglasSchwartz11@gmail.com"
-MY_PASSWORD = "xdaj kbls aarv gmrt"
+import os
+
+MY_EMAIL = os.environ["MY_EMAIL"]
+MY_PASSWORD = os.environ["MY_PASSWORD"]
 
 
 
