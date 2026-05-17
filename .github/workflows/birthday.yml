@@ -24,3 +24,9 @@ jobs:
 
       - name: Run script
         run: python bday_main.py
+
+      - name: Run script
+        run: python birthday_reminder.py
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
