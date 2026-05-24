@@ -11,25 +11,41 @@ import os
 
 MY_EMAIL = os.environ["MY_EMAIL"]
 MY_PASSWORD = os.environ["MY_PASSWORD"]
-
-
-
-bday_df = pd.read_csv("bday.csv")
-
+DB_URL = os.environ['DB_URL']
 
 today_month = datetime.today().month
 today_day = datetime.today().day
+
+def load_data():
+    cur.execute("""
+    SELECT first_name, last_name, month, day
+    FROM birthdays
+    ORDER BY month, day
+    """)
+
+    rows=cur.fetchall()
+
+    return pd.DataFrame(rows,
+                        columns=["First Name", "Last Name", "Month", "Day"]
+                        )
+
+
+bday_df = load_data()
 
 
 
 message_body = ""
 for _, row in bday_df.iterrows():
-   if int(row['Birthday'].split("-")[0]) == datetime.now().month and int(row['Birthday'].split("-")[1]) == datetime.now().day:
+   if int(row['Month']) == datetime.now().month and int(row['Day']) == datetime.now().day:
         bday_rows = (
             f"{row['First Name'].title()} {row['Last Name'].title()}"
 
         )
         message_body += (bday_rows + "\n")
+        bday_display = (
+            f"{row['First Name'].title()} {row['Last Name'].title()}\n\n"
+
+        )
 
 
 if message_body != "":
@@ -40,4 +56,8 @@ if message_body != "":
         connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=MY_EMAIL,
                             msg=f"Subject:It's Someone's Birthday!!\n\nDont Forget to Wish\n{message_body}A Happy Birthday!")
+
+
+
+
 
