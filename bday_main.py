@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 import warnings
 import smtplib
+import psycopg2
 
 warnings.simplefilter("ignore")
 
