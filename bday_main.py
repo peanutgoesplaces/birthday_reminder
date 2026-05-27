@@ -14,6 +14,13 @@ MY_EMAIL = os.environ["MY_EMAIL"]
 MY_PASSWORD = os.environ["MY_PASSWORD"]
 DB_URL = os.environ['DB_URL']
 
+conn = psycopg2.connect(
+    "postgresql://postgres.isfrplzuwehpmxlplqws:lZq()NW4XE0FhB@aws-1-us-west-2.pooler.supabase.com:6543/postgres"
+)
+
+cur = conn.cursor()
+
+
 today_month = datetime.today().month
 today_day = datetime.today().day
 
@@ -57,6 +64,11 @@ if message_body != "":
         connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=MY_EMAIL,
                             msg=f"Subject:It's Someone's Birthday!!\n\nDont Forget to Wish\n{message_body}A Happy Birthday!")
+
+
+conn.commit()
+cur.close()
+conn.close()
 
 
 
