@@ -18,10 +18,10 @@ conn = psycopg2.connect(DB_URL)
 print("Connection Succesful")
 
 cur = conn.cursor()
-cur.execut("SELECT COUNT(*) FROM birthdays")
+cur.execute("SELECT COUNT(*) FROM birthdays")
 print("Birthday Records: ", cur.fetchone()[0])
 
-cur.execut("SELECT current_database(), current_user")
+cur.execute("SELECT current_database(), current_user")
 print("Database: ", cur.fetchone()[0])
 
 
