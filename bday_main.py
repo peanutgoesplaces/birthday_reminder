@@ -15,8 +15,14 @@ MY_PASSWORD = os.environ["MY_PASSWORD"]
 DB_URL = os.environ["DB_URL"]
 
 conn = psycopg2.connect(DB_URL)
+print("Connection Succesful")
 
 cur = conn.cursor()
+cur.execut("SELECT COUNT(*) FROM birthdays")
+print("Birthday Records: ", cur.fetchone()[0])
+
+cur.execut("SELECT current_database(), current_user")
+print("Database: ", cur.fetchone()[0])
 
 
 today_month = datetime.today().month
