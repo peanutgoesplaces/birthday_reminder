@@ -12,11 +12,9 @@ import os
 
 MY_EMAIL = os.environ["MY_EMAIL"]
 MY_PASSWORD = os.environ["MY_PASSWORD"]
-DB_URL = os.environ['DB_URL']
+DB_URL = os.environ["DB_URL"]
 
-conn = psycopg2.connect(
-    "postgresql://postgres.isfrplzuwehpmxlplqws:lZq()NW4XE0FhB@aws-1-us-west-2.pooler.supabase.com:6543/postgres"
-)
+conn = psycopg2.connect(DB_URL)
 
 cur = conn.cursor()
 
@@ -50,11 +48,6 @@ for _, row in bday_df.iterrows():
 
         )
         message_body += (bday_rows + "\n")
-        bday_display = (
-            f"{row['First Name'].title()} {row['Last Name'].title()}\n\n"
-
-        )
-
 
 if message_body != "":
 
