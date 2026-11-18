@@ -14,6 +14,10 @@ from googleapiclient.discovery import build
 from email.mime.text import MIMEText
 import base64
 
+MY_EMAIL = os.environ["MY_EMAIL"]
+MY_PASSWORD = os.environ["MY_PASSWORD"]
+DB_URL = os.environ["DB_URL"]
+
 
 # Connect to Railway
 conn = psycopg2.connect(os.environ["DATABASE_PUBLIC_URL"])
