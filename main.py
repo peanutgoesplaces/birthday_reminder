@@ -20,7 +20,7 @@ DB_URL = os.environ["DB_URL"]
 
 
 # Connect to Railway
-conn = psycopg2.connect(os.environ["DATABASE_PUBLIC_URL"])
+conn = psycopg2.connect(os.environ["DB_URL"])
 
 
 cur = conn.cursor()
