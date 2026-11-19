@@ -237,12 +237,12 @@ for _, row in bday_df.iterrows():
 
         )
         message_body += (bday_rows + "\n")
-        bday_display = (
-            f"{row['First Name'].title()} {row['Last Name'].title()}\n\n"
+        # bday_display = (
+        #     f"{row['First Name'].title()} {row['Last Name'].title()}\n\n"
 
-        )
+        # )
 
-        bday_box.insert(END, bday_display)
+        # bday_box.insert(END, bday_display)
 
     
 print("Today's date:", datetime.now())
