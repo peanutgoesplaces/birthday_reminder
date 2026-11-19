@@ -227,8 +227,7 @@ today_day = datetime.today().day
 # bday_box.insert(END, "Happy Birthday\n\n", "big")
 # bday_box.tag_configure("big", font=("Times New Roman", 14), justify="center")
 
-print("Today's date:", datetime.now())
-print("Birthday message:", repr(message_body))
+
 # Creates Message for Email
 message_body = ""
 for _, row in bday_df.iterrows():
@@ -245,6 +244,8 @@ for _, row in bday_df.iterrows():
 
         bday_box.insert(END, bday_display)
 
+    
+
 #__________________________________________________________________________
 # if message_body != "":
 #
@@ -256,7 +257,8 @@ for _, row in bday_df.iterrows():
 #                             msg=f"Subject:It's Someone's Birthday!!\n\nDont Forget to Wish\n{message_body}A Happy Birthday!")
 
 #_________________________________________________________________________________
-
+print("Today's date:", datetime.now())
+print("Birthday message:", repr(message_body))
 if message_body != "":
 
     token_data = json.loads(os.environ["GMAIL_TOKEN"])
