@@ -227,6 +227,8 @@ today_day = datetime.today().day
 # bday_box.insert(END, "Happy Birthday\n\n", "big")
 # bday_box.tag_configure("big", font=("Times New Roman", 14), justify="center")
 
+print("Today's date:", datetime.now())
+print("Birthday message:", repr(message_body))
 # Creates Message for Email
 message_body = ""
 for _, row in bday_df.iterrows():
