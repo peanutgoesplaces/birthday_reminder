@@ -245,20 +245,8 @@ for _, row in bday_df.iterrows():
         bday_box.insert(END, bday_display)
 
     
-
-#__________________________________________________________________________
-# if message_body != "":
-#
-#     with smtplib.SMTP('smtp.gmail.com', 587) as connection:
-#         connection.starttls()
-#         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-#         connection.sendmail(from_addr=MY_EMAIL,
-#                             to_addrs=MY_EMAIL,
-#                             msg=f"Subject:It's Someone's Birthday!!\n\nDont Forget to Wish\n{message_body}A Happy Birthday!")
-
-#_________________________________________________________________________________
 print("Today's date:", datetime.now())
-print("Birthday message:", repr(message_body))
+#print("Birthday message:", repr(message_body))
 if message_body != "":
 
     token_data = json.loads(os.environ["GMAIL_TOKEN"])
@@ -288,6 +276,18 @@ if message_body != "":
     ).execute()
 
     print("Birthday email sent successfully!")
+
+#__________________________________________________________________________
+# if message_body != "":
+#
+#     with smtplib.SMTP('smtp.gmail.com', 587) as connection:
+#         connection.starttls()
+#         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+#         connection.sendmail(from_addr=MY_EMAIL,
+#                             to_addrs=MY_EMAIL,
+#                             msg=f"Subject:It's Someone's Birthday!!\n\nDont Forget to Wish\n{message_body}A Happy Birthday!")
+
+#_________________________________________________________________________________
 
 
 
