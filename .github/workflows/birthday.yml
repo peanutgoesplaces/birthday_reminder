@@ -33,3 +33,4 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
           DB_URL: ${{ secrets.DB_URL }}
+          GMAIL_TOKEN:  ${{ secrets.GMAIL_TOKEN }}
